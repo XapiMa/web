@@ -1,0 +1,810 @@
+@charset "utf-8";
+
+
+
+/* ========================================
+    リセットcss
+========================================= */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, 
+ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-style:normal;
+	font-weight: normal;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+html{overflow-y: scroll;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after,q:before, q:after {content: ''; content: none;}
+input, textarea,{margin: 0; padding: 0;}
+ol, ul{list-style:none;}
+table{border-collapse: collapse; border-spacing:0;}
+caption, th{text-align: left;}
+a:focus {outline:none;}
+
+/* micro clearfix */
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+.cf:after {clear: both;}
+.cf {*zoom: 1;}
+
+
+
+
+/* ========================================
+    全体
+========================================= */
+
+@media screen and (min-width: 951px){
+body {
+	font-family: Verdana, "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+	background-color: #000000;
+	height: 100%;
+	overflow: hidden;
+}
+
+html{
+	height: 100%;
+}
+
+div#container{
+	height: 100%;
+	width: 70%;
+	min-width: 950px;
+	margin: auto;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 10;
+}
+
+
+#wrapper{
+	height: 100%;
+	width: 100%;
+}
+
+#tube-button{
+	position: fixed;
+	top: 5%;
+	right: 0;
+	width: 4em;
+	height: auto;
+	z-index: 100;
+	text-align: center;
+}
+
+#tube-button-mute, #mov1, #mov2{
+	background-color: rgba(226, 250, 255, 0.2);
+	margin-bottom: 0.5em;
+	height: 2em;
+}
+
+
+
+
+.tubular-mute, #mov1-btn, #mov2-btn{
+	vertical-align: middle;
+	color: rgba(226, 250, 255, 0.6);
+}
+
+
+/* ========================================
+    タブ
+========================================= */
+
+
+.tabs {
+	position: relative;
+	overflow: hidden;
+	margin: 0 auto;
+	width: 100%;
+	height: 100%;
+	font-weight: 300;
+}
+
+/* Nav */
+.tabs nav {
+	text-align: center;
+	font-size: 3em;
+	height: 20%;
+}
+
+.tabs nav ul {
+	position: relative;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: flex;
+	margin: 0 auto;
+	padding: 0;
+	max-width: 1200px;
+	list-style: none;
+	-ms-box-orient: horizontal;
+	-ms-box-pack: center;
+	-webkit-flex-flow: row wrap;
+	-moz-flex-flow: row wrap;
+	-ms-flex-flow: row wrap;
+	flex-flow: row wrap;
+	-webkit-justify-content: center;
+	-moz-justify-content: center;
+	-ms-justify-content: center;
+	justify-content: center;
+}
+
+#logo{
+	width: 100%;
+	height: 20%;
+}
+
+
+.tabs nav ul li {
+	position: relative;
+	z-index: 1;
+	display: block;
+	margin: 0;
+	text-align: center;
+	-webkit-flex: 1;
+	-moz-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
+
+.tabs nav a {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	line-height: 2.5;
+}
+
+.tabs nav a span {
+	vertical-align: middle;
+	font-family: 'Fredericka the Great', cursive;
+}
+
+.tabs nav li.tab-current a {
+	color: #74777b;
+}
+
+.tabs nav a:focus {
+	outline: none;
+}
+
+/* Content */
+.content-wrap {
+	position: relative;
+	height: 60%;
+/*	height: 100%;*/
+}
+
+#news-get{
+	height: 60%;
+	width: 70%;
+	margin: 8% auto;
+	padding-top: 8%;
+	overflow: scroll;
+	
+}
+
+#news-dsc{
+	width: 100%;
+	height: auto;
+
+}
+
+#news-dsc dt{
+	font-size: 1.3em;
+	color: rgba(254, 112, 89, 0.7);
+	font-weight: 700;
+	text-shadow: black 1px 1px 0px, black -1px 1px 0px,
+             black 1px -1px 0px, black -1px -1px 0px;
+}
+
+#news-dsc dd{
+	color: rgba(250, 250, 250, 0.5);
+	text-shadow: black 1px 1px 0px, black -1px 1px 0px,
+             black 1px -1px 0px, black -1px -1px 0px;
+}
+
+.content-wrap section {
+	display: none;
+	margin: 0 auto;
+	padding: 1em;
+/*	max-width: 1200px;
+*/	text-align: center;
+	height: 100%;
+}
+
+#section{
+	height: 100%;
+}
+
+.content-wrap section.content-current {
+	display: block;
+}
+
+
+.content-wrap section p ,.content-wrap section a{
+	margin: 0;
+	
+/*	padding: 0.75em 0;
+*/
+}
+
+*/
+
+/* Fallback */
+
+
+
+.content-wrap section {
+	display: inline-block;
+	padding-bottom: 2em;
+	border-bottom: 1px solid rgba(255,255,255,0.6);
+	width: 90%;
+	margin: auto;
+}
+
+
+
+#section-top p{
+	font-family: 'Fredericka the Great', cursive;
+	text-shadow: 0px 0px 12px rgba(254, 112, 89, 0.7);
+	color: rgba(226, 250, 255, 0.6);
+	font-size: 3em;
+	padding-top: 25%;
+}
+
+/**ギャラリー**/
+#section-gallery{
+	width: 50%;
+	padding-top: 18%;
+}
+
+#section-gallery a{
+	font-family: 'Fredericka the Great', cursive;
+	text-shadow: 0px 0px 12px rgba(254, 112, 89, 0.7);
+	color: rgba(226, 250, 255, 1);
+	font-size: 3em;
+}
+
+#section-gallery p{
+	padding-top: 3em;
+}
+
+#movie{
+	float: left;
+	width: 47%;
+	height: 12em;
+	background-color: rgba(226, 250, 255, 0.6);
+	padding-top: 3em;
+}
+
+#photo{
+	float: right;
+	width: 47%;
+	height: 12em;
+	background-color: rgba(226, 250, 255, 0.6);
+	padding-top: 3em;
+}
+
+.clear{
+	clear: both;
+}
+
+/**メンバー**/
+#section-member{
+	width: 50%;
+	padding-top: 18%;
+}
+
+#section-member a{
+	font-family: 'Fredericka the Great', cursive;
+	text-shadow: 0px 0px 12px rgba(254, 112, 89, 0.7);
+	color: rgb(226, 250, 255);
+	font-size: 3em;
+}
+
+#section-member p{
+	padding-top: 3em;
+}
+
+#wiki-link{
+	float: left;
+	width: 47%;
+	height: 12em;
+	background-color: rgba(226, 250, 255, 0.6);
+	padding-top: 3em;
+}
+
+#sns-link{
+	float: right;
+	width: 47%;
+	height: 12em;
+	background-color: rgba(226, 250, 255, 0.6);
+	padding-top: 3em;
+}
+
+
+
+/**about us**/
+
+#section-about{
+	padding-top: 18%;
+	margin: auto;
+	padding-bottom: 0;
+}
+
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+
+#aboutus{
+	width: 90%;
+	height: auto;
+	margin: auto;
+}
+
+#aboutus h1{
+	font-size: 1.4em;
+	font-weight: 600;
+}
+
+.accordion {
+	width: 600px;
+	height: 300px;
+	margin: auto;
+	overflow: hidden;
+}
+
+#sche_list{
+	overflow: scroll;
+}
+
+#schelist, table, tbody{
+	width: 100%;
+}
+
+#sche_list table tbody tr td:nth-child(odd){
+	font-weight: 700;
+	font-size: 1.2em;
+	color: #fe7059;
+}
+#sche_list table tbody tr td:nth-child(even){
+	padding: 0 auto;
+}
+
+
+
+.accordion dt {
+	float: left;
+	width: 20px;
+	height: 300px;
+	background-color: rgba(226, 250, 255, 0.6);
+	cursor: pointer;
+	padding: 10px;
+	border-right: 1px solid #fff;
+}
+
+.accordion dt p{
+	-moz-transform:    rotate( 90deg );  /* Firefox用 */
+	-webkit-transform: rotate( 90deg );  /* Chrome,Safari,新しいOpera用 */
+	-o-transform:      rotate( 90deg );  /* 古いOpera用 */
+	-ms-transform:     rotate( 90deg );  /* IE用 */
+	transform:         rotate( 90deg );  /* CSS3の書き方 */
+}
+
+.accordion dd {
+	float: left;
+	width: 374px;
+	height: 300px;
+	display: none;
+	background-color: rgba(247, 247, 246, 0.5);
+	border-right: 1px solid #fff;
+}
+
+.accordion dd div {
+	width: 374px;
+	height: 300px;
+	overflow: hidden;
+	padding: 10px;
+	display: block;
+}
+
+#schedule-left dt, #schedule-right dt{
+
+}
+
+#schedule-left dd, #schedule-right dd{
+	clear: both;
+}
+
+/**place**/
+
+
+#gmap{
+	opacity: 0.7;
+}
+
+/**ニュース**/
+#section-news p {
+	font-family: 'Fredericka the Great', cursive;
+	text-shadow: 0px 0px 12px rgba(254, 112, 89, 0.7);
+	color: rgba(226, 250, 255, 0.6);
+	font-size: 3em;
+	padding-top: 25%;
+}
+
+/**deveroper**/
+
+#deveroper tr td{
+	padding-bottom: 20px;
+	padding-top: 10px;
+	font-size: 0.8em;
+}
+
+#deveroper a{
+	text-decoration: underline;
+}
+
+/* ========================================
+    demo.css
+========================================= */
+
+
+
+
+a {
+	color: #fe7059;
+	text-decoration: none;
+	outline: none;
+}
+
+
+.container > section {
+	padding: 5em 0;
+	min-height: 100%;
+}
+
+p {
+	text-align: center;
+	padding: 1em;
+}
+
+
+
+
+/* ========================================
+    tabstyle.css
+========================================= */
+
+
+/*****************************/
+/* Moving Line */
+/*****************************/
+
+.tabs-style-linemove nav {
+	background: rgba(0, 0, 250, 0);
+}
+
+.tabs-style-linemove nav li:last-child::before {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: #fe7059;
+	content: '';
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+}
+
+/* Move the line */
+.tabs-style-linemove nav li:first-child.tab-current ~ li:last-child::before {
+	-webkit-transform: translate3d(-400%,0,0);
+	transform: translate3d(-400%,0,0);
+}
+
+.tabs-style-linemove nav li:nth-child(2).tab-current ~ li:last-child::before {
+	-webkit-transform: translate3d(-300%,0,0);
+	transform: translate3d(-300%,0,0);
+}
+
+.tabs-style-linemove nav li:nth-child(3).tab-current ~ li:last-child::before {
+	-webkit-transform: translate3d(-200%,0,0);
+	transform: translate3d(-200%,0,0);
+}
+
+.tabs-style-linemove nav li:nth-child(4).tab-current ~ li:last-child::before {
+	-webkit-transform: translate3d(-100%,0,0);
+	transform: translate3d(-100%,0,0);
+}
+
+.tabs-style-linemove nav a {
+	padding: 1em 0;
+	color: #74777b;
+	line-height: 1;
+	-webkit-transition: color 0.3s, -webkit-transform 0.3s; 
+	transition: color 0.3s, transform 0.3s;
+}
+
+.tabs-style-linemove nav li.tab-current a {
+	color: #fe7059;
+	-webkit-transform: translate3d(0,8px,0);
+	transform: translate3d(0,8px,0);
+}
+
+.tabs-style-linemove nav a span {
+	font-weight: 700;
+}
+
+
+
+}
+/* ========================================
+    mobile.css
+========================================= */
+
+/*===============================================
+●tablet.css 画面の横幅が950pxまで
+===============================================*/
+@media screen and (max-width: 950px){
+
+*{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+a{
+	color: rgba(254, 112, 89, 1);
+}
+
+body{
+	width: 100%;
+	height: auto;
+	background-color: black;
+	color: white;
+}
+
+#wrapper{
+	width: 100%;
+}
+
+#container{
+	width: 100%;
+}
+
+#logo{
+	width: 100%;
+	height: 600px;
+}
+
+#svg-logo{
+	width: 100%;
+	padding-top: 200px;
+}
+
+#section{
+	width: 100%;
+}
+
+#tube-button p{
+	font-size: 0.8em;
+	color: red;
+}
+
+.content-wrap{
+	width: 100%;
+}
+
+dt{
+	text-align: center;
+	font-size: 1.4em;
+	color: rgba(254, 112, 89, 1);
+	padding-bottom: 1em;
+	padding-top: 1em;
+	text-decoration: underline overline;
+}
+
+dd{
+	text-align: center;
+	width: 94%;
+	margin: 0 auto;
+}
+
+#sche_list table{
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#sche_list table tbody tr td:nth-child(odd){
+	width: 40%;
+}
+
+#wawd{
+	font-size: 1.2em;
+	padding-bottom: 0.5em;
+}
+
+#deveroper{
+	margin: 0 auto;
+	font-size: 0.8em;
+}
+
+
+#deveroper tr td:nth-child(1){
+	width: 30%;
+	font-size: 1em;
+	vertical-align: middle;
+	padding-bottom: 0.5em;
+}
+
+#deveroper tr td:nth-child(3){
+	width: 30%;
+}
+
+#deveroper tr td:nth-child(2){
+	width: 40%;
+}
+#mobile{
+	position: relative;
+	top: 1.5em; left: 0;
+	height: auto;
+	width: 100%;
+}
+
+
+#mobile-news{
+	width: 100%;
+	height: auto;
+}
+
+#mobile-gallery{
+	width: 50%;
+	height: auto; 
+	float: left;
+	height: auto;
+	padding-bottom: 2em;
+}
+
+#mobile-about{
+	width: 100%;
+	height: auto;
+}
+
+#mobile-member{
+	float: right;
+	width: 50%;
+	height: auto;
+	padding-bottom: 2em;
+}
+
+#movie, #photo, #wiki-link, #sns-link{
+	width: 50%;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#movie, #wiki-link{
+	float: left;
+	vertical-align: middle;
+}
+
+#photo, #sns-link{
+	float: right;
+}
+
+.clear{
+	clear: both;
+}
+
+
+
+
+}
+
+/*===============================================
+●smart.css  画面の横幅が640pxまで
+===============================================*/
+@media screen and (max-width:640px){
+
+
+
+
+
+
+
+
+}
+
+
+
+
+/* ========================================
+    logo
+========================================= */
+
+
+.path{
+	stroke:rgba(254, 112, 89, 0.7);
+    stroke-width:2.5;
+
+    stroke-dasharray: 3000;
+    stroke-dashoffset:3000;
+	animation: DASH 20s ease-in alternate forwards;
+	-webkit-animation:DASH 20s ease-in 0s forwards;
+	-o-animation:DASH 20s ease-in 0s forwards;
+	animation:DASH 20s ease-in 0s forwards;
+}
+@keyframes DASH{
+    0%  {stroke-dashoffset:3000;fill:rgba(0, 0, 0, 0.1);}
+    100%{stroke-dashoffset:0;fill:rgba(226, 250, 255, 0.6);}
+}
+
+@-moz-keyframes DASH{
+    0%  {stroke-dashoffset:3000;fill:rgba(0, 0, 0, 0.1);}
+    100%{stroke-dashoffset:0;fill:rgba(226, 250, 255, 0.6);}
+}
+
+@-webkit-keyframes DASH{
+    0%  {stroke-dashoffset:3000;fill:rgba(0, 0, 0, 0.1);}
+    100%{stroke-dashoffset:0;fill:rgba(226, 250, 255, 0.6);}
+}
+
+@-o-keyframes DASH{
+    0%  {stroke-dashoffset:3000;fill:rgba(0, 0, 0, 0.1);}
+    100%{stroke-dashoffset:0;fill:rgba(226, 250, 255, 0.6);}
+}
+
+@-ms-keyframes DASH{
+    0%  {stroke-dashoffset:3000;fill:rgba(0, 0, 0, 0.1);}
+    100%{stroke-dashoffset:0;fill:rgba(226, 250, 255, 0.6);}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
